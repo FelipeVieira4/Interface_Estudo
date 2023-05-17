@@ -1,0 +1,28 @@
+#------------------------------------------------#
+TABELAS:
+
+    CLIENTE                      CONTA
+LIST_TOKENS_CONTAS               TOKEN
+
+CLIENTE:pode ter mais de conta com por isso deve ter
+uma lista de TOKENS
+
+#------------------------------------------------#
+
+===ADICIONAR===
+
+$ Abrir Conta
+	-Biometria x
+	-Digito x
+	-Token
+
+$ Cadastrar Cliente
+	-Nome x
+	-Cpf x
+	-dataNascimento
+	-Endereço x
+	-TELEFONE x
+	-Codigo x
+	-Renda Mensal x
+	-Emprego x
+	
