@@ -138,7 +138,7 @@ public class Main {//Interface (MVC) - Model View Controller
 					int idConta = Integer.parseInt(contaIDText.getText());
 					
 
-					if(idConta<=contaList.size()-1) {
+					if(idConta<contaList.size()) {
 						contaList.remove(idConta);
 					}else JOptionPane.showMessageDialog(null,"ID de conta não existente","Informaçoes Cliente",JOptionPane.OK_CANCEL_OPTION);
 					
@@ -234,6 +234,10 @@ public class Main {//Interface (MVC) - Model View Controller
 				break;
 				case "Remover Cliente":
 					System.out.println(clienteList.size());
+					for(Pessoa s:clienteList) {
+						System.out.println(s.getNome());
+					}
+					
 					
 					JLabel  lbClienteID1=new JLabel("ID do cliente");
 					JTextField clienteIDText = new JTextField();
@@ -245,17 +249,37 @@ public class Main {//Interface (MVC) - Model View Controller
 
 					int idCliente = Integer.parseInt(clienteIDText.getText());
 					
+					System.out.println(idCliente);
 
-					if(idCliente<=clienteList.size()-1) {
-						contaList.remove(idCliente);
+					if(idCliente<clienteList.size()) {
+						clienteList.remove(idCliente);
 					}else JOptionPane.showMessageDialog(null,"ID de conta não existente","Informaçoes Cliente",JOptionPane.OK_CANCEL_OPTION);
 					
 				break;
-				/*
-				case "Definir o titular Conta":
-					conta.setTitular(cliente);
-				break;
 				
+				case "Definir o titular Conta":
+
+					
+						if(clienteList.size()>0 && contaList.size()>0) {
+							
+							JComboBox<Object> menuTitularConta = new JComboBox<>();
+							menuTitularConta.addItem("Sair");
+							for(Conta c:contaList) {
+								menuTitularConta.addItem(c.getNumero()+"-"+c.getDigito());
+							}
+							
+							JComboBox<Object> menuTitularCliente = new JComboBox<>();
+														
+							for(Pessoa c:clienteList) {
+								menuTitularCliente.addItem(c.getNome());
+							}
+							
+							Object[] titularConta = {new JLabel("Escolha Cliente"),menuTitularConta,new JLabel("Escolha um Titular para a conta"),menuTitularCliente};
+						
+							JOptionPane.showMessageDialog(null,titularConta,"NSEI",JOptionPane.OK_CANCEL_OPTION);
+						}
+				break;
+				/*
 				case "Sacar":
 					JLabel lbSacarSenha = new JLabel("Senha");
 					JTextField sacarSenhaText = new JTextField();
