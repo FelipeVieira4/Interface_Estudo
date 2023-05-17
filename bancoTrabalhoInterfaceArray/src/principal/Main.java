@@ -263,11 +263,11 @@ public class Main {//Interface (MVC) - Model View Controller
 						if(clienteList.size()>0 && contaList.size()>0) {
 							
 							JComboBox<Object> menuTitularConta = new JComboBox<>();
-							menuTitularConta.addItem("Sair");
+														
 							for(Conta c:contaList) {
-								menuTitularConta.addItem(c.getNumero()+"-"+c.getDigito());
+								menuTitularConta.addItem(c.getDigito());
 							}
-							
+
 							JComboBox<Object> menuTitularCliente = new JComboBox<>();
 														
 							for(Pessoa c:clienteList) {
@@ -276,7 +276,11 @@ public class Main {//Interface (MVC) - Model View Controller
 							
 							Object[] titularConta = {new JLabel("Escolha Cliente"),menuTitularConta,new JLabel("Escolha um Titular para a conta"),menuTitularCliente};
 						
-							JOptionPane.showMessageDialog(null,titularConta,"NSEI",JOptionPane.OK_CANCEL_OPTION);
+							
+							
+							JOptionPane.showMessageDialog(null,titularConta,"Titular Conta",JOptionPane.OK_CANCEL_OPTION);
+							
+							contaList.get(menuTitularConta.getSelectedIndex()).setTitular(clienteList.get(menuTitularCliente.getSelectedIndex()));
 						}
 				break;
 				/*
