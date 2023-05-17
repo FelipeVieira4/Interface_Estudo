@@ -313,23 +313,23 @@ public class Main {//Interface (MVC) - Model View Controller
 				*/
 				case "Mostrar Informaçoes Conta":
 					
-					JComboBox<Object> menuTitularConta = new JComboBox<>();
+					
 					
 					if(contaList.size()>0) {
-					
+						JComboBox<Object> menuTitularConta = new JComboBox<>();
 						for(Conta c:contaList) {
 							menuTitularConta.addItem(c.getDigito());
 						}
-						
+							
 						Object[] informacoesContaEscolhaConta = {menuTitularConta};
-						
+							
 						JOptionPane.showMessageDialog(null,informacoesContaEscolhaConta,"Informaçoes",JOptionPane.OK_CANCEL_OPTION);
-						
-						
+							
+							
 						int registro = menuTitularConta.getSelectedIndex();
-						
+							
 						System.out.println(registro);
-						
+							
 						if(contaList.get(registro).getTitular()!=null) {
 							Object[] informacoesConta= {
 									new JLabel("Conta:"),
@@ -342,8 +342,8 @@ public class Main {//Interface (MVC) - Model View Controller
 									new JLabel("Telefone:"+contaList.get(registro).getTitular().getTelefone()),
 									new JLabel("CPF:"+contaList.get(registro).getTitular().getCPF()),
 							};
-							
-							
+								
+								
 							JOptionPane.showMessageDialog(null,informacoesConta,"Informaçoes",JOptionPane.OK_CANCEL_OPTION);
 						}
 				}
@@ -355,12 +355,6 @@ public class Main {//Interface (MVC) - Model View Controller
 			
 		}while(!menu.getSelectedItem().equals("Sair do Programa"));
 		
-		for(Conta c:contaList) {
-			System.out.println(c.getBiometria());
-		}
-		for(Pessoa c:clienteList) {
-			System.out.println(c.getCPF());
-		}
 	}
 
 }
