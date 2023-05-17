@@ -310,27 +310,41 @@ public class Main {//Interface (MVC) - Model View Controller
 					
 					JOptionPane.showMessageDialog(null,"Saldo:"+conta.getSaldo(),"Sacar",JOptionPane.OK_CANCEL_OPTION);
 				break;
+				*/
 				case "Mostrar Informaçoes Conta":
 					
-					if(conta.getTitular()!=null) {
+					JComboBox<Object> menuTitularConta = new JComboBox<>();
+					
+					for(Conta c:contaList) {
+						menuTitularConta.addItem(c.getDigito());
+					}
+					
+					Object[] informacoesContaEscolhaConta = {menuTitularConta};
+					
+					JOptionPane.showMessageDialog(null,informacoesContaEscolhaConta,"Informaçoes",JOptionPane.OK_CANCEL_OPTION);
+					
+					
+					int registro = menuTitularConta.getSelectedIndex();
+					
+					if(contaList.get(registro).getTitular()!=null) {
 						Object[] informacoesConta= {
 								new JLabel("Conta:"),
-								new JLabel("Digito:"+conta.getDigito()),
-								new JLabel("Número:"+conta.getNumero()),
-								new JLabel("Saldo:"+conta.getSaldo()),
-								new JLabel("Limite:"+conta.getLimite()),
+								new JLabel("Digito:"+contaList.get(registro).getDigito()),
+								new JLabel("Número:"+contaList.get(registro).getNumero()),
+								new JLabel("Saldo:"+contaList.get(registro).getSaldo()),
+								new JLabel("Limite:"+contaList.get(registro).getLimite()),
 								new JLabel("Titular"),
-								new JLabel("Nome:"+conta.getTitular().getNome()),
-								new JLabel("Telefone:"+conta.getTitular().getTelefone()),
-								new JLabel("CPF:"+conta.getTitular().getCPF()),
+								new JLabel("Nome:"+contaList.get(registro).getTitular().getNome()),
+								new JLabel("Telefone:"+contaList.get(registro).getTitular().getTelefone()),
+								new JLabel("CPF:"+contaList.get(registro).getTitular().getCPF()),
 						};
 						
 						
 						JOptionPane.showMessageDialog(null,informacoesConta,"Informaçoes",JOptionPane.OK_CANCEL_OPTION);
+				}
 					
-					}else JOptionPane.showMessageDialog(null,"Essa conta não tem TITULAR.","ERROR",JOptionPane.OK_CANCEL_OPTION);
 				break;
-				*/
+				
 			}
 		
 
