@@ -315,34 +315,38 @@ public class Main {//Interface (MVC) - Model View Controller
 					
 					JComboBox<Object> menuTitularConta = new JComboBox<>();
 					
-					for(Conta c:contaList) {
-						menuTitularConta.addItem(c.getDigito());
-					}
+					if(contaList.size()>0) {
 					
-					Object[] informacoesContaEscolhaConta = {menuTitularConta};
-					
-					JOptionPane.showMessageDialog(null,informacoesContaEscolhaConta,"Informaçoes",JOptionPane.OK_CANCEL_OPTION);
-					
-					
-					int registro = menuTitularConta.getSelectedIndex();
-					
-					if(contaList.get(registro).getTitular()!=null) {
-						Object[] informacoesConta= {
-								new JLabel("Conta:"),
-								new JLabel("Digito:"+contaList.get(registro).getDigito()),
-								new JLabel("Número:"+contaList.get(registro).getNumero()),
-								new JLabel("Saldo:"+contaList.get(registro).getSaldo()),
-								new JLabel("Limite:"+contaList.get(registro).getLimite()),
-								new JLabel("Titular"),
-								new JLabel("Nome:"+contaList.get(registro).getTitular().getNome()),
-								new JLabel("Telefone:"+contaList.get(registro).getTitular().getTelefone()),
-								new JLabel("CPF:"+contaList.get(registro).getTitular().getCPF()),
-						};
+						for(Conta c:contaList) {
+							menuTitularConta.addItem(c.getDigito());
+						}
+						
+						Object[] informacoesContaEscolhaConta = {menuTitularConta};
+						
+						JOptionPane.showMessageDialog(null,informacoesContaEscolhaConta,"Informaçoes",JOptionPane.OK_CANCEL_OPTION);
 						
 						
-						JOptionPane.showMessageDialog(null,informacoesConta,"Informaçoes",JOptionPane.OK_CANCEL_OPTION);
+						int registro = menuTitularConta.getSelectedIndex();
+						
+						System.out.println(registro);
+						
+						if(contaList.get(registro).getTitular()!=null) {
+							Object[] informacoesConta= {
+									new JLabel("Conta:"),
+									new JLabel("Digito:"+contaList.get(registro).getDigito()),
+									new JLabel("Número:"+contaList.get(registro).getNumero()),
+									new JLabel("Saldo:"+contaList.get(registro).getSaldo()),
+									new JLabel("Limite:"+contaList.get(registro).getLimite()),
+									new JLabel("Titular"),
+									new JLabel("Nome:"+contaList.get(registro).getTitular().getNome()),
+									new JLabel("Telefone:"+contaList.get(registro).getTitular().getTelefone()),
+									new JLabel("CPF:"+contaList.get(registro).getTitular().getCPF()),
+							};
+							
+							
+							JOptionPane.showMessageDialog(null,informacoesConta,"Informaçoes",JOptionPane.OK_CANCEL_OPTION);
+						}
 				}
-					
 				break;
 				
 			}
